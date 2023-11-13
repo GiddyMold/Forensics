@@ -1,0 +1,16 @@
+These files are mandatory for program to run in THE SAME directory:
+- exiftool.exe
+- main.py
+- interface.py
+- auth.py
+- copy_drive.py
+- hash.py
+- metadata.py
+- read_only.py
+- tree.py
+
+These libraries are requires
+- humanize
+
+Make sure to install them with:
+- pip install humanize
