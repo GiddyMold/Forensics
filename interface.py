@@ -73,6 +73,9 @@ def start():
         try:
             subprocess.run(["pip", "install", "humanize", "psutil"], check=True)
             print("Packages installed successfully.")
+            if os.name == 'posix':
+                 subprocess.run(["chmod", "+x", "Image-ExifTool/exiftool"], check=True)
+                 print("Image-ExifTool executable permissions granted.")
         except subprocess.CalledProcessError as e:
             print(f"An error occurred: {e}")
         exit()
