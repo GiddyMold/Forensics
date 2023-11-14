@@ -1,5 +1,5 @@
-Będziemy w tym repo trzymać aktualny kod programu
-Ostatni update kodu: 07.11.2023
+Będziemy w tym repo trzymać aktualny kod programu: https://github.com/GiddyMold/Forensics
+Ostatni update kodu: 14.11.2023
 
 TO DO:
 - /dev/sr0 is needed to get disk info

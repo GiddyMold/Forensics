@@ -3,10 +3,8 @@ import os          # Provides access to operating system functions
 import sys         # Provides access to additional system functions
 import tkinter as tk
 from tkinter import filedialog
-from GUI import return_GUI
 
 debug = False
-gui = False
 
 def start():
     if len(sys.argv) > 1 and (sys.argv[1] == "--help" or sys.argv[1] == "-help" or sys.argv[1] == "-h" or sys.argv[1] == "--h"):
@@ -57,9 +55,6 @@ def start():
     elif len(sys.argv) > 1 and (sys.argv[1] == "--debug" or sys.argv[1] == "-debug" or sys.argv[1] == "--d" or sys.argv[1] == "-d"):
         global debug
         debug = True
-    elif len(sys.argv) > 1 and (sys.argv[1] == "--gui" or sys.argv[1] == "-gui" or sys.argv[1] == "--g" or sys.argv[1] == "-g"):
-        global gui
-        gui = True
     elif len(sys.argv) > 1:
         print("""
         Unknown Option:
@@ -79,15 +74,16 @@ def start():
 
 def user_input():
     # Prompt the user for source drive and destination path
-    global gui
-    if gui == True:
-        name, source_drive, first_copy, destination_path = return_GUI()
-    else:
-        name = input("Enter your full name: ")
-        source_drive = input("Enter the source drive letter (A-Z) or path to filesystem: ").upper()
-        first_copy = input("Enter the destination path of first copy: ")
-        destination_path = input("Enter the destination path of second copy: ")
-
+    name = input("Enter your full name: ")
+    source_drive = input("Enter the source drive letter (A-Z) or path to filesystem [type 0 for GUI]: ").upper()
+    if source_drive == "0":
+        source_drive = filedialog.askdirectory()
+    first_copy = input("Enter the destination path of first copy [type 0 for GUI]: ")
+    if first_copy == "0":
+        first_copy = filedialog.askdirectory()
+    destination_path = input("Enter the destination path of second copy [type 0 for GUI]: ")
+    if destination_path == "0":
+        destination_path = filedialog.askdirectory()
     if not name:                                                              # Default paths for fast debbugging
         name = "Debug"                                                        # Default paths for fast debbugging
     if not source_drive:                                                      # Default paths for fast debbugging
