@@ -103,7 +103,7 @@ def user_input():
         name, source_drive, first_copy, destination_path = return_GUI()
     else:
         name = input("Enter your full name: ")
-        source_drive = input("Enter the source drive letter (A-Z) or path to filesystem: ").upper()
+        source_drive = input("Enter the source drive letter (A-Z) or path to filesystem: ")
         first_copy = input("Enter the destination path of first copy: ")
         destination_path = input("Enter the destination path of second copy: ")
 
