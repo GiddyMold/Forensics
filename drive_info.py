@@ -3,7 +3,7 @@ import humanize
 
 drive_parameters = []
 
-def get_drive_parameters(source_path):
+def get_drive_parameters(source_path, debug):
     # Get the disk partitions
     partitions = psutil.disk_partitions()
 
@@ -22,6 +22,20 @@ def get_drive_parameters(source_path):
             drive_parameters.append(f"Options: {partition.opts}")
             drive_parameters.append(f"Max file descriptors: {partition.maxfile}")
             drive_parameters.append(f"Max filename length: {partition.maxpath}")
+            
+            if debug == True:
+                print("Drive information:")
+                print(f"Drive exact path: {partition.device}")
+                print(f"Mountpoint path: {partition.mountpoint}")
+                print(f"File system type: {partition.fstype}")
+                print(f"Total size: {humanize.naturalsize(usage.total)}")
+                print(f"Used space: {humanize.naturalsize(usage.used)}")
+                print(f"Free space: {humanize.naturalsize(usage.free)}")
+                print(f"Usage percentage: {usage.percent}%")
+                print(f"Options: {partition.opts}")
+                print(f"Max file descriptors: {partition.maxfile}")
+                print(f"Max filename length: {partition.maxpath}")
+            
             break
         
     return drive_parameters

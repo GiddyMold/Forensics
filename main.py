@@ -28,7 +28,7 @@ def record_time():
     interval()
     
     # Get drive information and parameters
-    drive_parameters = get_drive_parameters(source_path)
+    drive_parameters = get_drive_parameters(source_path, is_debug())
 
     # Set the file to read-only mode
     execute_read_only(source_drive, source_path)
@@ -63,7 +63,7 @@ def record_time():
     end_time = datetime.now()  # Record the end time using the current system time
     
     # Create results folder and file within
-    create_results(name, drive_parameters, source_drive, first_copy, destination_path, hash1, hash2, start_time, end_time)
+    create_results(name, drive_parameters, source_drive, first_copy, destination_path, hash1, hash2, start_time, end_time, is_debug())
     interval()
 
     # Print timestamps of running the program

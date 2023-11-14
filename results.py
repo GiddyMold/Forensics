@@ -13,7 +13,7 @@ def move_metadata_file():
     else:
         print("ERROR: File 'metadata.txt' not found in the current directory. File not moved.")
 
-def create_results(name, drive_parameters, source_drive, first_copy, destination_path, hash1, hash2, start_time, end_time):
+def create_results(name, drive_parameters, source_drive, first_copy, destination_path, hash1, hash2, start_time, end_time, debug):
     # Create a "Results" folder in the current directory if it doesn't exist
     if not os.path.exists("Results"):
         os.mkdir("Results")
@@ -48,3 +48,6 @@ def create_results(name, drive_parameters, source_drive, first_copy, destination
 
             
     print("'Results' folder & results.txt creation successfull.")
+    if debug == True:
+        print("Result folder path: " + os.path.abspath("Results"))
+        print("results.txt file path:", os.path.abspath("Results/results.txt"))

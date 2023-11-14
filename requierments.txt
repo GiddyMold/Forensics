@@ -10,6 +10,7 @@ These files are mandatory for program to run in THE SAME directory:
 - tree.py
 - results.py
 - disk_info.py
+- GUI.py
 
 These libraries are requires
 - humanize
