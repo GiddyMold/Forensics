@@ -101,6 +101,10 @@ def user_input():
     global gui
     if gui == True:
         name, source_drive, first_copy, destination_path = return_GUI()
+        print("Full name: " + name)
+        print("Source drive: " + source_drive)
+        print("First copy path: " + first_copy)
+        print("Second copy path: " + destination_path)
     else:
         name = input("Enter your full name: ")
         source_drive = input("Enter the source drive letter (A-Z) or path to filesystem: ")
